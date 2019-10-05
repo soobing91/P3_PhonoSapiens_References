@@ -1,14 +1,5 @@
 [
     {
-        "Part_Count": "Part",
-        "Chapter_Count": "Chapter",
-        "Page_Number": "Page",
-        "Institution": "Source",
-        "Language": "Language",
-        "Keyword": "Keyword",
-        "URL": "URL"
-    },
-    {
         "Part_Count": "Prologue",
         "Chapter_Count": "Prologue",
         "Page_Number": "7",
