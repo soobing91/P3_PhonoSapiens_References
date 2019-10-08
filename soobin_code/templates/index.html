@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Latest Articles from Consultant References</title>
   </head>
   <body>
     <!-- Box for scraping data -->
@@ -26,7 +26,7 @@
     <!-- Container for latest articles -->
     <div class="container">
         {% for article in summary.articles %}
-        <div class="row">
+        <div class="row" style="height: 150px;">
           <div class="col-md-1">
             <a href="{{ article.addr }}" target="_blank"><img style="width: 50px; height: auto" src="{{ article.icon }}"></a>
           </div>

@@ -36,22 +36,6 @@ def scrape_info():
     wef['addr'] = 'https://www.weforum.org/'
     wef['icon'] = 'https://www.weforum.org/assets/logo-b66768797e3f785791fd157ffc33c27eeca6d5100b7f34d418f50d206f1a8004.svg'
 
-    # Forbes
-    forbes_url = 'https://www.forbes.com/search/?q=digital+economy'
-    browser.visit(forbes_url)
-    forbes_html = browser.html
-    forbes_soup = bs(forbes_html, 'html.parser')
-    time.sleep(3)
-
-    forbes_content = forbes_soup.find('div', class_ = 'stream-item__text')
-
-    forbes = {}
-    forbes['link'] = forbes_content.a['href']
-    forbes['title'] = forbes_content.h2.text.strip()
-    forbes['snippet'] = ''
-    forbes['addr'] = 'https://www.forbes.com/'
-    forbes['icon'] = 'https://cdn-images-1.medium.com/max/1440/1*UMb1VBufUL8VFLhXVnUvlw@2x.png'
-
     # McKinsey & Company
     mckinsey_url = 'https://www.mckinsey.com/search?q=digital%20economy'
     browser.visit(mckinsey_url)
@@ -85,9 +69,42 @@ def scrape_info():
     vc['addr'] = 'https://www.visualcapitalist.com/'
     vc['icon'] = 'http://www.visualcapitalist.com/wp-content/uploads/2015/12/viscap.png'
 
+    # HBR
+    hbr_url = 'https://hbr.org/search?search_type=&term=digital+economy'
+    browser.visit(hbr_url)
+    hbr_html = browser.html
+    hbr_soup = bs(hbr_html, 'html.parser')
+    time.sleep(3)
+
+    hbr_content = hbr_soup.find('stream-item', class_ = 'stream-item overflow-hidden')
+
+    hbr = {}
+    hbr_link = hbr_content.h3.a['href']
+    hbr['link'] = f'https://hbr.org{hbr_link}'
+    hbr['title'] = hbr_content.h3.text.strip()
+    hbr['snippet'] = hbr_content.find('div', class_ = 'dek hide-for-small').text.strip()
+    hbr['addr'] = 'https://hbr.org'
+    hbr['icon'] = 'https://hbr.org/resources/css/images/HBR_logo_black.svg'
+
+    # Forbes
+    forbes_url = 'https://www.forbes.com/search/?q=digital+economy'
+    browser.visit(forbes_url)
+    forbes_html = browser.html
+    forbes_soup = bs(forbes_html, 'html.parser')
+    time.sleep(3)
+
+    forbes_content = forbes_soup.find('div', class_ = 'stream-item__text')
+
+    forbes = {}
+    forbes['link'] = forbes_content.a['href']
+    forbes['title'] = forbes_content.h2.text.strip()
+    forbes['snippet'] = ''
+    forbes['addr'] = 'https://www.forbes.com/'
+    forbes['icon'] = 'https://cdn-images-1.medium.com/max/1440/1*UMb1VBufUL8VFLhXVnUvlw@2x.png'
+
     # Push into object
     
-    articles = [wef, forbes, mckinsey, vc]
+    articles = [wef, mckinsey, vc, hbr, forbes]
 
     summary = {
         'articles': articles
