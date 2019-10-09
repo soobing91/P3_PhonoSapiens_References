@@ -115,7 +115,7 @@ function gaugechart(subject) {
             title: 'Number of References of Institution vs Mean',
             type: 'indicator',
             mode: 'gauge+number+delta',
-            delta: {reference: 2, increasing: {color: 'RebeccaPurple'} },
+            delta: {reference: 2.5, increasing: {color: 'RebeccaPurple'} },
             gauge: {
                 axis: {range: [null, 25]},
                 bar: {color: 'black'},
@@ -158,8 +158,9 @@ function init() {
         metadata(ids[0]);
         gaugechart(ids[0]);
         bargraph(ids[0]);
+
+
     });
 };
 
 init();
-
