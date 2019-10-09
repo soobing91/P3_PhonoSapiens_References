@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup as bs
 from splinter import Browser
 import requests
 import time
-import pandas as pd
 
 # Setting Up Splinter
 # For macOS users
